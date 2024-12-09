@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <title>Product Unavailable</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css"
+    />
+  </head>
+  <body>
+    <div class="container mt-5">
+      <div class="alert alert-danger text-center">
+        <h1>Product Unavailable</h1>
+        <p
+          th:text="'The product \'' + ${productTitle} + '\' is currently out of stock.'"
+        ></p>
+        <a href="/products" class="btn btn-primary">Next</a>
+      </div>
+    </div>
+  </body>
+</html>

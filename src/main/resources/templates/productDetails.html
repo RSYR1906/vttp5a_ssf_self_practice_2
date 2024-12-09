@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <title>Product Details</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css"
+    />
+  </head>
+  <body>
+    <div class="container mt-5">
+      <div class="card text-bg-light">
+        <div class="card-header">
+          <h1 th:text="'Details for: ' + ${product.title}"></h1>
+        </div>
+        <div class="card-body">
+          <p><strong>ID:</strong> <span th:text="${product.id}"></span></p>
+          <p>
+            <strong>Description:</strong>
+            <span th:text="${product.description}"></span>
+          </p>
+          <p>
+            <strong>Price:</strong> <span th:text="${product.price}"></span>
+          </p>
+          <p>
+            <strong>Discount:</strong>
+            <span th:text="${product.discountPercentage} + '%'"></span>
+          </p>
+          <p>
+            <strong>Rating:</strong> <span th:text="${product.rating}"></span>
+          </p>
+          <p>
+            <strong>Stock:</strong> <span th:text="${product.stock}"></span>
+          </p>
+          <p>
+            <strong>Brand:</strong> <span th:text="${product.brand}"></span>
+          </p>
+          <p>
+            <strong>Category:</strong>
+            <span th:text="${product.category}"></span>
+          </p>
+          <p>
+            <strong>Amount Bought:</strong>
+            <span th:text="${product.buyAmount}"></span>
+          </p>
+        </div>
+        <div class="card-footer text-center">
+          <a href="/products" class="btn btn-primary">Next</a>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

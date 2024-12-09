@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <title>Product List</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css"
+    />
+  </head>
+  <body>
+    <div class="container mt-4">
+      <h1 class="text-center">Product List</h1>
+
+      <table
+        class="table table-bordered table-striped table-hover"
+      >
+        <thead>
+          <tr>
+            <th>Id</th>
+            <th>Title</th>
+            <th>Description</th>
+            <th>Price</th>
+            <th>Discount</th>
+            <th>Rating</th>
+            <th>Stock</th>
+            <th>Brand</th>
+            <th>Category</th>
+            <th>Amount Bought</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Iterate through products -->
+          <tr th:each="productEntry : ${products}">
+            <td th:text="${productEntry.value.id}"></td>
+            <td th:text="${productEntry.key}"></td>
+            <td th:text="${productEntry.value.description}"></td>
+            <td th:text="${productEntry.value.price}"></td>
+            <td th:text="${productEntry.value.discountPercentage} + '%'"></td>
+            <td th:text="${productEntry.value.rating}"></td>
+            <td th:text="${productEntry.value.stock}"></td>
+            <td th:text="${productEntry.value.brand}"></td>
+            <td th:text="${productEntry.value.category}"></td>
+            <td th:text="${productEntry.value.buyAmount}"></td>
+            <td>
+              <form
+                th:action="@{/products/buy(title=${productEntry.key})}"
+                method="post"
+              >
+                <button
+                  type="submit"
+                  class="btn btn-primary"
+                >
+                  Buy
+                </button>
+              </form>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </body>
+</html>
